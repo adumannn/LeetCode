@@ -1,22 +1,22 @@
-class ListNode:
+# Definition for singly-linked list.
+class ListNode(object):
     def __init__(self, val=0, next=None):
-        self.val = val       
+        self.val = val
         self.next = next
-
 class Solution(object):
     def mergeTwoLists(self, list1, list2):
-        dumm = ListNode(0)
-        curr = dumm
+        dummy = ListNode(0)
+        current = dummy
+
         while list1 and list2:
             if list1.val < list2.val:
-                curr.next = list1
+                current.next = list1
                 list1 = list1.next
             else:
-                curr.next = list2
+                current.next = list2
                 list2 = list2.next
-            curr = curr.next
+            current = current.next
         
-        curr.next = list1 if list1 else list2
+        current.next = list1 if list1 else list2
 
-        return dumm.next
-        
+        return dummy.next
