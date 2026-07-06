@@ -14,7 +14,4 @@ class Solution:
             else:
                 l = r + 1
 
-
-
-
         return cnt
