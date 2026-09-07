@@ -1,7 +1,6 @@
 class Solution:
     def firstStableIndex(self, nums: list[int], k: int) -> int:
-        if len(nums) == 1 and k == 0:
-            return 0
+
 
         n = len(nums)
 
