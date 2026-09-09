@@ -1,8 +1,10 @@
 class Solution:
     def countCommas(self, n: int) -> int:
-        cnt = 1
-        if n >= 1000:
-            for i in range (1000, n):
-                cnt += 1
-            return cnt
-        return 0
+        temp = 1000
+        ans = 0
+
+        while temp <= n:
+            ans = n - temp + 1
+            temp *= 1000
+        
+        return ans
