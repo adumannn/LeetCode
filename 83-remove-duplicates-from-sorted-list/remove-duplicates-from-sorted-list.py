@@ -1,27 +1,20 @@
-class Solution(object):
-    def deleteDuplicates(self, head):
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def deleteDuplicates(self, head: ListNode | None) -> ListNode | None:
+        if head is None:
+            return None
 
-        seen = set()
-        duplicates = set()
-        current = head
+        curr = head
 
-        while current:
-            if current.val in seen:
-                duplicates.add(current.val)
+        while curr and curr.next:
+            if curr.val == curr.next.val:
+                dup = curr.next
+                curr.next = dup.next   
             else:
-                seen.add(current.val)
-            
-            current = current.next
+                curr = curr.next
 
-        seen_srt = sorted(seen)
-
-        dummy = ListNode(0)
-        curr = dummy
-        for val in seen_srt:
-            curr.next = ListNode(val)
-            curr = curr.next
-
-        return dummy.next
-
-
-        
+        return head
