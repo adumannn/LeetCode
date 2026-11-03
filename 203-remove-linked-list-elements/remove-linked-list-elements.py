@@ -1,21 +1,24 @@
-class ListNode(object):
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeElements(self, head: ListNode | None, val: int) -> ListNode | None:
+        
+        ans = ListNode()
+        ans_t = ans
 
-class Solution(object):
-    def removeElements(self, head, target):
+        while head:
+            
 
-        while head is not None and head.val == target:
+            if head.val != val:
+                ans_t.next = head
+                ans_t = ans_t.next
+            
             head = head.next
-        
-        current = head
 
-        while current and current.next:
-            if current.next.val == target:
-                current.next = current.next.next
-            else:
-                current = current.next
+        ans_t.next = None
+        return ans.next
+                
 
-        return head
-        
